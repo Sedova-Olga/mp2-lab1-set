@@ -6,6 +6,8 @@ TEST(TBitField, can_set_last_bit_1)
     const size_t num_el = 1;
     const size_t n = sizeof(elType) * 8 * num_el;
     TBitField field(n);
+    auto t1 = field.getNumBytes();
+    auto t2 = sizeof(elType) * num_el;
     ASSERT_EQ(field.getNumBytes(), sizeof(elType) * num_el);
     ASSERT_NO_THROW(field.setBit(n - 1));
     ASSERT_EQ(field.getBit(n - 1), true);
